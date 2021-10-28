@@ -101,6 +101,8 @@ if __name__ == "__main__":
         mlflow.log_metric("mae", mae)
         mlflow.sklearn.log_model(lr, "model")
         mlflow.sklearn.log_model(lr, "model", signature=signature,registered_model_name="DiabetesModel" )
+        modelpath = "test_diabetes/model-%f-%f" % (alpha, l1_ratio)
+        mlflow.sklearn.save_model(lr, modelpath)
         
         tracking_uri = mlflow.get_tracking_uri()
         print("Current tracking uri: {}".format(tracking_uri))
