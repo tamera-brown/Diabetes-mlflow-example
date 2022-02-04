@@ -1,9 +1,0 @@
-flask
-gunicorn
-numpy
-matplotlib
-sklearn 
-mlflow
-scipy
-pandas
-scikit-learn
