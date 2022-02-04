@@ -99,9 +99,8 @@ if __name__ == "__main__":
         mlflow.log_metric("rmse", rmse)
         mlflow.log_metric("r2", r2)
         mlflow.log_metric("mae", mae)
-        mlflow.sklearn.log_model(lr, "model")
-        mlflow.sklearn.log_model(lr, "model", signature=signature,registered_model_name="DiabetesModel" )
-        modelpath = "test_diabetes/model-%f-%f" % (alpha, l1_ratio)
+        modelpath = "mlflow_diabetes_model"
+        mlflow.sklearn.log_model(lr,modelpath,signature=signature,registered_model_name="DiabetesModel")
         mlflow.sklearn.save_model(lr, modelpath)
         
         tracking_uri = mlflow.get_tracking_uri()
